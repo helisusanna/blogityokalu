@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 const blogi = require("./models/blogi");
 
-const portti = 3105;
+const portti = process.env.PORT || 3105;
 
 app.set("views", "./views");
 app.set("view engine", "ejs");
