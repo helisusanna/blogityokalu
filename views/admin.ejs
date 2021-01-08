@@ -1,0 +1,33 @@
+<%- include("includes/header"); -%>
+
+<h2 class="border-bottom border-dark"><%=otsikko%></h2>
+
+<h4 class="mb-4 mt-4">Kirjoita blogiin</h4>
+
+<form method="POST" action="/tallenna" onSubmit="return julkaistu()">
+    <div class="form-group">
+        <label for="otsikko">Viestin otsikko:</label>
+        <input type="text" name="otsikko" class="form-control">
+        <label for="viesti">Kirjoita viesti:</label>
+        <textarea name="viesti" class="form-control" rows="4" id="editor1"></textarea>
+
+    </div>
+    <input type="submit" id="submit" name="tallenna" value="Julkaise kirjoitus blogiin" class="btn btn-primary">
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+</form>
+
+<h4 class="mb-4 mt-4">Poista kirjoitus</h4>
+
+<form method="POST" action="/poista">
+    <div class="form-group">
+        <label for="poistettava_otsikko">Poistettavan viestin otsikko:</label>
+        <input type="text" name="poistettava_otsikko" class="form-control">
+    </div>
+    <input type="submit" name="poista" value="Poista kirjoitus" class="btn btn-danger">
+</form>
+
+
+
+<%- include("includes/footer") -%>
